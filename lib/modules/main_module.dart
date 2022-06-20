@@ -1,0 +1,44 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc_kujang/models/module.dart';
+import 'package:bloc_kujang/services/apps_routes.dart';
+import 'package:bloc_kujang/bloc/theme_cubit.dart';
+
+import '../utils/routes.dart';
+import 'account/services/user_routes.dart';
+
+class MainModule implements Module {
+  @override
+  String? name = 'Main';
+
+  @override
+  pages() {
+    return [
+      Page(title: 'User Detail', route: UserRoutes.userDetail),
+      Page(title: 'User Form', route: UserRoutes.userForm),
+      Page(
+          title: 'User List',
+          route: UserRoutes.userList,
+          showInDrawer: true,
+          showInHome: true)
+    ];
+  }
+
+  @override
+  services() {}
+
+  @override
+  List<BlocProvider> providers() {
+    return [
+      BlocProvider(
+        create: (_) => ThemeCubit(),
+      ),
+     
+    ];
+  }
+
+  @override
+  void routes() {
+    RoutesService.addRoutes(AppsRoutes.routes);
+    RoutesService.addRoutes(UserRoutes.routes);
+  }
+}
