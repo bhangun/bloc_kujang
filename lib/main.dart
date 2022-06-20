@@ -20,7 +20,9 @@ import 'generated/localization.dart';
 import 'bloc/observer.dart';
 import 'services/apps_routes.dart';
 import 'services/navigation.dart';
+import 'utils/connectivity.dart';
 import 'utils/locales.dart';
+import 'utils/logging.dart';
 import 'utils/modules_registry.dart';
 import 'bloc/theme_cubit.dart';
 import 'utils/routes.dart';
@@ -34,6 +36,7 @@ void main() {
   // Register all modules
   ModulesRegistry();
 
+
   BlocOverrides.runZoned(
     // Run main app
     () => runApp(KutilangApp()),
@@ -41,6 +44,12 @@ void main() {
     // Register observer config
     blocObserver: KutBlocObserver(),
   );
+
+  // Configured logging
+  Logging.configuration();
+
+  // Check connection
+  ConnectivityUtils.checkConnection();
 }
 
 class KutilangApp extends StatelessWidget {

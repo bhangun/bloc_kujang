@@ -33,30 +33,33 @@ dependencies:
   equatable: ^2.0.3
 
   # Local database
-  sembast: ^3.1.1
+  sembast: ^3.2.0+1
+
+  # Key/Value Store
+  hive: ^2.2.2
 
   # Encryption
   xxtea: ^2.1.0
 
   # REST connection
-  dio: ^4.0.3
+  dio: ^4.0.6
 
+  # Contains code to deal with internationalized/localized messages, date and number formatting 
+  # and parsing, bi-directional text, and other internationalization issues
   intl: ^0.17.0
 
-  #intl_translation: ^0.17.10+1
 
   # Network connection
-  connectivity: ^3.0.2
+  connectivity_plus: ^2.3.4
 
   # Logging
-  f_logs: ^2.0.0
+  f_logs: ^2.0.1
 
-  #biometric_storage: ^2.0.1
 
   # JWT decoder
   jwt_decoder: ^2.0.1
 
-
+  #
   cached_network_image: ^3.0.0
 
 
@@ -68,7 +71,6 @@ dependencies:
 
   json_annotation: ^4.0.0
 
-  #another_flushbar: ^1.10.13
 
   flutter_slidable: ^1.1.0
 

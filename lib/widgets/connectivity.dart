@@ -1,9 +1,8 @@
 import 'dart:async';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:f_logs/f_logs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:connectivity/connectivity.dart';
-import 'package:logging/logging.dart';
 
 class ConnectivityWidget extends StatefulWidget {
   ConnectivityWidget({required Key key}) : super(key: key);
@@ -13,15 +12,15 @@ class ConnectivityWidget extends StatefulWidget {
 }
 
 class _ConnectivityWidgetState extends State<ConnectivityWidget> {
-  String _connectionStatus = 'Unknown';
+  ConnectivityResult _connectionStatus = ConnectivityResult.none;
   final Connectivity _connectivity = Connectivity();
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
-  final log = Logger('AuthBloc');
-  
+
   @override
   void initState() {
     super.initState();
     initConnectivity();
+
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
   }
@@ -34,12 +33,18 @@ class _ConnectivityWidgetState extends State<ConnectivityWidget> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initConnectivity() async {
-    ConnectivityResult result = ConnectivityResult.none;
+    late ConnectivityResult result;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       result = await _connectivity.checkConnectivity();
     } on PlatformException catch (e) {
-      log.info(e.toString());
+      FLog.error(
+        text: "Couldn\'t check connectivity status",
+        className: "ConnectivityWidget",
+        exception: Exception("Exception and StackTrace"),
+        stacktrace: StackTrace.current,
+      );
+      return;
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -52,26 +57,20 @@ class _ConnectivityWidgetState extends State<ConnectivityWidget> {
     return _updateConnectionStatus(result);
   }
 
+  Future<void> _updateConnectionStatus(ConnectivityResult result) async {
+    setState(() {
+      _connectionStatus = result;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Connectivity example app'),
       ),
-      body: Center(child: Text('Connection Status: $_connectionStatus')),
+      body: Center(
+          child: Text('Connection Status: ${_connectionStatus.toString()}')),
     );
-  }
-
-  Future<void> _updateConnectionStatus(ConnectivityResult result) async {
-    switch (result) {
-      case ConnectivityResult.wifi:
-      case ConnectivityResult.mobile:
-      case ConnectivityResult.none:
-        setState(() => _connectionStatus = result.toString());
-        break;
-      default:
-        setState(() => _connectionStatus = 'Failed to get connectivity.');
-        break;
-    }
   }
 }
