@@ -14,6 +14,7 @@ import 'package:bloc_kujang/modules/kojek/ko_routes.dart';
 import 'package:bloc_kujang/services/navigation.dart';
 
 import '../utils/config.dart';
+import '../widgets/login_body_widget.dart';
 import '../widgets/textfield_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -97,93 +98,20 @@ class _Loginpagestate extends State<LoginScreen> {
                       icon: Icon(Icons.flag),
                       onPressed: () => _showLocales()),
                 ]),
-            body: _body(context)));
+            body: LoginBodyWidget(
+                isObscure: _isObscure,
+                passwordController: _passwordController,
+                passwordFocusNode: _passwordFocusNode,
+                userEmailController: _userEmailController,
+                onEyePressed: _onEyePressed(),
+                onForgotPassword: _onForgotPassword(context),
+                forgotPassword:
+                    AppLocalizations.of(context)!.forgotPassword!)));
   }
 
-  Material _body(BuildContext context) {
-    return Material(
-        key: _formKey,
-        child: MobileLayout(
-          rightChild: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SvgPicture.asset(
-                IMAGE_SPLASH,
-                width: 60,
-                height: 60,
-              ),
-              SizedBox(height: 24.0),
-              _userIdField(),
-              _passwordField(),
-              _forgotPasswordButton(),
-              _signInButton(),
-            ],
-          ),
-          leftChild: SizedBox.expand(
-              child: SvgPicture.asset(
-            IMAGE_SPLASH,
-            width: 100,
-            height: 100,
-          )),
-          showProgress: false,
-        ));
+  _onForgotPassword(context){
+    context.read<AuthBloc>().forgotPassword();
   }
-
-  Widget _userIdField() =>
-      BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
-        FLog.info(text: '>>>>>>>' + state.status.toString());
-        return TextFieldWidget(
-          hint: AppLocalizations.of(context)!.email,
-          inputType: TextInputType.emailAddress,
-          icon: Icons.person,
-          iconColor: Colors.black54,
-          textController: _userEmailController,
-          inputAction: TextInputAction.next,
-          onFieldSubmitted: (value) {
-            FocusScope.of(context).requestFocus(_passwordFocusNode);
-          },
-          errorText: context.read<AuthBloc>().userMessage,
-        );
-      });
-
-  Widget _passwordField() =>
-      BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
-        FLog.info(text: '>>>>>>>' + state.status.toString());
-        return TextFieldWidget(
-          hint: AppLocalizations.of(context)!.password,
-          isObscure: _isObscure,
-          padding: EdgeInsets.only(top: 16.0),
-          icon: Icons.lock,
-          iconColor: Colors.black54,
-          textController: _passwordController,
-          focusNode: _passwordFocusNode,
-          errorText: context.read<AuthBloc>().passwordMessage,
-          onEyePressed: () => _onEyePressed(),
-          isEyeOpen: _isEyeOpen,
-          showEye: true,
-        );
-      });
-
-  Widget _forgotPasswordButton() => Align(
-      alignment: FractionalOffset.centerRight,
-      child: TextButton(
-          key: Key('user_forgot_password'),
-          child: Text(AppLocalizations.of(context)!.forgotPassword!),
-          onPressed: () => context.read<AuthBloc>().forgotPassword()));
-
-  Widget _signInButton() =>
-      BlocBuilder<AuthBloc, AuthState>(
-        buildWhen: (previous, current) => previous != current,
-        builder: (context, state) {
-        FLog.info(text: '>>>>>>>' + state.status.toString());
-        return ElevatedButton(
-          key: Key('user_sign_button'),
-          onPressed: () => context.read<AuthBloc>().add(LoginButtonPressed()),
-          child: Text(AppLocalizations.of(context)!.sign_in!),
-        );
-      });
 
   _onEyePressed() {
     setState(() {

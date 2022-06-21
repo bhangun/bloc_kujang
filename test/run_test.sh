@@ -1,0 +1,1 @@
+flutter test test/counter_test.dart
