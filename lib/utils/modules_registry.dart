@@ -18,7 +18,7 @@ class ModulesRegistry {
     _registry();
   }
  
-  static final _blocProvider = <BlocProvider<Bloc<Object?, Object?>>>[];
+  static final _blocProvider = [];
 
   _registry(){
     registerModules().forEach((m){
@@ -30,13 +30,13 @@ class ModulesRegistry {
         log.info(m.providers());
 
 
-       // _blocProvider.add(m.providers());
+        _blocProvider.add(m.providers());
         m.routes();
         m.services();
     });
   }
 
-  static providers(){
+  static  providers(){
     return _blocProvider;
   }
 }

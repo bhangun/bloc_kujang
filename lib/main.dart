@@ -25,9 +25,9 @@ import 'utils/locales.dart';
 import 'utils/logging.dart';
 import 'utils/modules_registry.dart';
 import 'bloc/theme_cubit.dart';
+import 'utils/providers.dart';
 import 'utils/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 
 void main() {
   // Initialized
@@ -36,10 +36,9 @@ void main() {
   // Register all modules
   ModulesRegistry();
 
-
   BlocOverrides.runZoned(
     // Run main app
-    () => runApp(KutilangApp()),
+    () => runApp(KujangApp()),
 
     // Register observer config
     blocObserver: KutBlocObserver(),
@@ -52,7 +51,7 @@ void main() {
   ConnectivityUtils.checkConnection();
 }
 
-class KutilangApp extends StatelessWidget {
+class KujangApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -67,10 +66,11 @@ class KutilangApp extends StatelessWidget {
             create: (_) => AppBloc(AppState.initializing()),
           ),
           BlocProvider<AuthBloc>(
-            create: (_) => AuthBloc(
-                 AuthState.unauthenticated()),
+            create: (_) => AuthBloc(AuthState.unauthenticated()),
           ),
+          //...MyProviders.providers
         ],
+        // MyProviders.providers,
         child: BlocBuilder<ThemeCubit, ThemeData>(builder: (_, theme) {
           return BlocBuilder<LocaleCubit, Locale>(builder: (_, locale) {
             return MaterialApp(

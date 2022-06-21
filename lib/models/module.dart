@@ -1,9 +1,11 @@
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 abstract class Module {
   String? name;
   List<Page> pages();
   void services();
-  providers();
+  List<BlocProvider> providers();
   void routes();
 }
 

@@ -3,6 +3,9 @@ import 'package:bloc_kujang/models/module.dart';
 import 'package:bloc_kujang/services/apps_routes.dart';
 import 'package:bloc_kujang/bloc/theme_cubit.dart';
 
+import '../bloc/app_bloc/app.dart';
+import '../bloc/auth_bloc/auth_bloc.dart';
+import '../bloc/locale_cubit.dart';
 import '../utils/routes.dart';
 import 'account/services/user_routes.dart';
 
@@ -32,7 +35,15 @@ class MainModule implements Module {
       BlocProvider(
         create: (_) => ThemeCubit(),
       ),
-     
+      BlocProvider(
+        create: (_) => LocaleCubit(),
+      ),
+      BlocProvider<AppBloc>(
+        create: (_) => AppBloc(AppState.initializing()),
+      ),
+      BlocProvider<AuthBloc>(
+        create: (_) => AuthBloc(AuthState.unauthenticated()),
+      ),
     ];
   }
 

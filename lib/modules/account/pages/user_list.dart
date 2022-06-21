@@ -69,7 +69,7 @@ class _UserListState extends State<UserList> {
             itemBuilder: (context, index) {
               return Slidable(
                 key: ValueKey(index),
-                actionPane: SlidableDrawerActionPane(),
+                /* actionPane: SlidableDrawerActionPane(),
                 actions: <Widget>[
                   IconSlideAction(
                     caption: 'Archive',
@@ -97,7 +97,7 @@ class _UserListState extends State<UserList> {
                 ],
                 dismissal: SlidableDismissal(
                   child: SlidableDrawerDismissal(),
-                ),
+                ), */
                 child: ListTile(
                   leading: Icon(Icons.person),
                   /* title: Text('${_userBloc.userList[index].id} - '+
