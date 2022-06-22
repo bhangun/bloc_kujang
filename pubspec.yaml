@@ -29,7 +29,8 @@ dependencies:
   # State management using blutter_bloc
   flutter_bloc: ^8.0.1
 
-  # Utils
+  # A Dart package that helps to implement value based equality 
+  # without needing to explicitly override == and hashCode.
   equatable: ^2.0.3
 
   # Local database
@@ -59,23 +60,28 @@ dependencies:
   # JWT decoder
   jwt_decoder: ^2.0.1
 
-  #
-  cached_network_image: ^3.0.0
+  # Flutter library to load and cache network images. 
+  # Can also be used with placeholder and error widgets.
+  cached_network_image: ^3.2.1
 
+  # Flutter plugin for getting commonly used locations on host platform file systems, 
+  # such as the temp and app data directories.
+  path_provider: ^2.0.11
 
-  path_provider: ^2.0.7
+  # An SVG rendering and widget library for Flutter, which allows painting 
+  # and displaying Scalable Vector Graphics 1.1 files.
+  flutter_svg: ^1.1.0
 
-  flutter_svg: ^0.23.0+1
-
-  responsive_builder: ^0.4.1
-
-  json_annotation: ^4.0.0
+  # Classes and helper functions that support JSON code generation 
+  # via the `json_serializable` package
+  json_annotation: ^4.5.0
 
 
   flutter_slidable: ^1.1.0
 
-  
-  built_value: ^8.0.2
+  # Value types with builders, Dart classes as enums, 
+  # and serialization. This library is the runtime dependency
+  built_value: ^8.3.3
 
   # plugin provides an API for querying information about an application package.
   package_info_plus: ^1.0.3
@@ -86,11 +92,11 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  test: ^1.21.2 
+  test: any 
   mockito: ^5.2.0
   build_runner: ^2.1.11
 
-
+ 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
