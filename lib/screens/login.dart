@@ -19,10 +19,10 @@ import '../widgets/textfield_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
-  _Loginpagestate createState() => _Loginpagestate();
+  _Loginscreenstate createState() => _Loginscreenstate();
 }
 
-class _Loginpagestate extends State<LoginScreen> {
+class _Loginscreenstate extends State<LoginScreen> {
   // text controllers
   TextEditingController _userEmailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();

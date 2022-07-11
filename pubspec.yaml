@@ -102,7 +102,7 @@ dev_dependencies:
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+# following screen: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:

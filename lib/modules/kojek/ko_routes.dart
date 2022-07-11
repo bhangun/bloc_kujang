@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'pages/ko_main.dart';
-import 'pages/kojek_home.dart';
-import 'pages/komart_home.dart';
-import 'pages/kopay_home.dart';
-import 'pages/kosend_home.dart';
-import 'pages/koshop_home.dart';
+import 'screens/ko_main.dart';
+import 'screens/kojek_home.dart';
+import 'screens/komart_home.dart';
+import 'screens/kopay_home.dart';
+import 'screens/kosend_home.dart';
+import 'screens/koshop_home.dart';
 
 class KoRoutes {
   KoRoutes._();

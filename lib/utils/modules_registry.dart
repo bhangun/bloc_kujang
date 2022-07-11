@@ -22,9 +22,9 @@ class ModulesRegistry {
 
   _registry(){
     registerModules().forEach((m){
-        m.pages().forEach((p){
+        m.screens().forEach((p){
           p.name = m.name;
-          Modules.addPages(p);
+          Modules.addscreens(p);
         });
 
         log.info(m.providers());

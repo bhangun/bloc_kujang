@@ -14,11 +14,11 @@ class MainModule implements Module {
   String? name = 'Main';
 
   @override
-  pages() {
+  screens() {
     return [
-      Page(title: 'User Detail', route: UserRoutes.userDetail),
-      Page(title: 'User Form', route: UserRoutes.userForm),
-      Page(
+      Screen(title: 'User Detail', route: UserRoutes.userDetail),
+      Screen(title: 'User Form', route: UserRoutes.userForm),
+      Screen(
           title: 'User List',
           route: UserRoutes.userList,
           showInDrawer: true,

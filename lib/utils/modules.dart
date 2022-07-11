@@ -3,11 +3,11 @@
 import 'package:bloc_kujang/models/module.dart';
 
 class Modules {
-  static var _pages  = <Page>[];
+  static var _screens  = <Screen>[];
 
-  static addPages(Page newPages){
-    _pages.add(newPages);
+  static addscreens(Screen newscreens){
+    _screens.add(newscreens);
   }
 
-  static List<Page> get pages => _pages;
+  static List<Screen> get screens => _screens;
 }

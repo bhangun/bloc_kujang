@@ -3,21 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class Module {
   String? name;
-  List<Page> pages();
+  List<Screen> screens();
   void services();
   List<BlocProvider> providers();
   void routes();
 }
 
 
-class Page{
+class Screen{
   String? name;
   String? title;
   String? route;
   bool showInDrawer;
   bool showInHome;
 
-  Page(
+  Screen(
       {
         this.name,
         this.title,

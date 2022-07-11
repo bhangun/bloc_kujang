@@ -12,8 +12,6 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(AuthState? state) : super(state!);
 
- // final _controller = StreamController<AuthStatus>();
-
   String username = '';
 
   String userMessage = '';
@@ -40,7 +38,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   @override
   Stream<AuthState> mapEventToState(AuthEvent event) async* {
-    FLog.info(text: '>>>>><<<<< '+ event.toString());
+    FLog.info(text: '>>>>><<<<< ' + event.toString());
     if (event is CheckAuthentication) {
       FLog.info(text: 'CheckAuthentication');
       yield (await _hasToken())
@@ -79,7 +77,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   @override
   Future<void> close() {
     // _authStatusSubscription.cancel();
-   // _controller.close();
+    // _controller.close();
     return super.close();
   }
 

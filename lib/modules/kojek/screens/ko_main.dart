@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_kujang/modules/kojek/pages/ko_chat.dart';
-import 'package:bloc_kujang/modules/kojek/pages/ko_home.dart';
-import 'package:bloc_kujang/modules/kojek/pages/ko_promo.dart';
+import 'package:bloc_kujang/modules/kojek/screens/ko_chat.dart';
+import 'package:bloc_kujang/modules/kojek/screens/ko_home.dart';
+import 'package:bloc_kujang/modules/kojek/screens/ko_promo.dart';
 import 'package:bloc_kujang/modules/kojek/widgets/capsule_indicator.dart';
 
 class KoMain extends StatefulWidget {

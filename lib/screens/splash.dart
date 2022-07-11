@@ -14,10 +14,10 @@ class SplashScreen extends StatefulWidget {
   }
 
   @override
-  State<StatefulWidget> createState() => _Splashpagestate();
+  State<StatefulWidget> createState() => _Splashscreenstate();
 }
 
-class _Splashpagestate extends State<SplashScreen> {
+class _Splashscreenstate extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();

@@ -43,7 +43,7 @@ class UserServices {
 
 
   // Fetch all user
-  static Future<List<User>> users([var page, var size, var sort]) async {
+  static Future<List<User>> users([var screen, var size, var sort]) async {
     List<dynamic> data = await RestServices.fetch(API_USERS);
     return User.listFromJson(data);
   }

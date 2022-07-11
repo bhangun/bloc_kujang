@@ -10,14 +10,14 @@ class KoModule implements Module {
   String? name = 'Main';
 
   @override
-  pages() {
+  screens() {
     return [
-      Page(title: 'User Detail', route: KoRoutes.koHome),
-      Page(title: 'User Form', route: KoRoutes.kojekHome),
-      Page(title: 'User Form', route: KoRoutes.koPayHome),
-      Page(title: 'User Form', route: KoRoutes.koSendHome),
-      Page(title: 'User Form', route: KoRoutes.koShopHome),
-      Page(
+      Screen(title: 'User Detail', route: KoRoutes.koHome),
+      Screen(title: 'User Form', route: KoRoutes.kojekHome),
+      Screen(title: 'User Form', route: KoRoutes.koPayHome),
+      Screen(title: 'User Form', route: KoRoutes.koSendHome),
+      Screen(title: 'User Form', route: KoRoutes.koShopHome),
+      Screen(
           title: 'User List',
           route: KoRoutes.koMartHome,
           showInDrawer: true,

@@ -9,7 +9,6 @@ class AboutScreen extends StatefulWidget {
 }
 
 class _AboutScreenState extends State<AboutScreen> {
-  
   String appName = "";
   String packageName = "";
   String version = "";
@@ -18,18 +17,16 @@ class _AboutScreenState extends State<AboutScreen> {
   @override
   void initState() {
     PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
-   appName = packageInfo.appName;
-   packageName = packageInfo.packageName;
-   version = packageInfo.version;
-   buildNumber = packageInfo.buildNumber;
-   
-});
+      appName = packageInfo.appName;
+      packageName = packageInfo.packageName;
+      version = packageInfo.version;
+      buildNumber = packageInfo.buildNumber;
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       child: Text(appName),
     );

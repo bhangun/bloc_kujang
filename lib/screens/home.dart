@@ -7,10 +7,10 @@ import '../widgets/appbar_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
-  _Homepagestate createState() => _Homepagestate();
+  _Homescreenstate createState() => _Homescreenstate();
 }
 
-class _Homepagestate extends State<HomeScreen> {
+class _Homescreenstate extends State<HomeScreen> {
   final _homeKey = GlobalKey<ScaffoldState>();
 
   var subscription;

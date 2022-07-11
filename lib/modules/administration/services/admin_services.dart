@@ -45,8 +45,8 @@ class AdminServices {
     return Health.fromJson(data);
   }
 
-  static Future getAudits(page, size, sort, fromDate, toDate) async {
+  static Future getAudits(screen, size, sort, fromDate, toDate) async {
     return await RestServices.fetch(
-        'management/audits?page=$page&size=$size&sort=$sort');
+        'management/audits?screen=$screen&size=$size&sort=$sort');
   } */
 }

@@ -9,10 +9,10 @@ import '../bloc/locale_cubit.dart';
 import '../bloc/theme_cubit.dart';
 
 class  MyProviders {
-  static var _pages  = <Page>[];
+  static var _screens  = <Screen>[];
 
-  static addPages(Page newPages){
-    _pages.add(newPages);
+  static addscreens(Screen newscreens){
+    _screens.add(newscreens);
   }
 
   static List<BlocProvider> get providers => 
