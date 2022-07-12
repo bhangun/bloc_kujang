@@ -20,12 +20,12 @@ import 'generated/localization.dart';
 import 'bloc/observer.dart';
 import 'services/apps_routes.dart';
 import 'services/navigation.dart';
-import 'utils/connectivity.dart';
+//import 'utils/connectivity.dart';
 import 'utils/locales.dart';
 import 'utils/logging.dart';
 import 'utils/modules_registry.dart';
 import 'bloc/theme_cubit.dart';
-import 'utils/providers.dart';
+//import 'utils/providers.dart';
 import 'utils/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -48,7 +48,7 @@ void main() {
   Logging.configuration();
 
   // Check connection
-  ConnectivityUtils.checkConnection();
+  //ConnectivityUtils.checkConnection();
 }
 
 class KujangApp extends StatelessWidget {
@@ -68,9 +68,8 @@ class KujangApp extends StatelessWidget {
           BlocProvider<AuthBloc>(
             create: (_) => AuthBloc(AuthState.unauthenticated()),
           ),
-          //...MyProviders.providers
         ],
-        // MyProviders.providers,
+       
         child: BlocBuilder<ThemeCubit, ThemeData>(builder: (_, theme) {
           return BlocBuilder<LocaleCubit, Locale>(builder: (_, locale) {
             return MaterialApp(
@@ -91,6 +90,7 @@ class KujangApp extends StatelessWidget {
                 const AppLocalizationsDelegate(),
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
               ],
               supportedLocales: Locales.list,
             );
